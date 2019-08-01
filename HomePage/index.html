@@ -560,6 +560,8 @@
         var leftSidebar = document.getElementById("myNav");
         var closeSidebar = document.getElementById('arrow_back');
         var openSidebar= document.getElementById('more_sidebar');
+
+        // 
         function myFunction(x){
           if(x.matches){
             leftSidebar.style.width="0px";
@@ -572,12 +574,13 @@
             overLay.style.display="none";
           }
         }
+        // Done when click outsite leftSidebar will close leftSide
         window.onclick = function(event){
           if(event.target.matches(' .overlay')){
             closeNav();
           }
         }
-
+        // check the screen width to execute function
         var x = window.matchMedia("(max-width: 1155px)");
         myFunction(x) // Call listener function at run time
         x.addListener(myFunction);
@@ -591,11 +594,6 @@
       }
       
       function closeNav(){
-        // window.onclick = function(event){
-        //   if(!event.target.matches('#myNav')){
-        //     closeNav()
-        //   }
-        // }
         closeSidebar.style.transform="scale(0)";
         openSidebar.style.transform="scale(1)";
         leftSidebar.style.width="0px";
