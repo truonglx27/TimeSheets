@@ -25,7 +25,7 @@
           <i class="material-icons">arrow_back</i>
         </span>
         <span onclick="openNav()" class="more_sidebar" id="more_sidebar">
-            <i class="material-icons">
+            <i class="material-icons" class="view-headine" >
               view_headline
             </i>
         </span>
@@ -51,7 +51,7 @@
         </div>
       </nav>
     </header>
-
+    <div class="overlay" id="overlay"></div>
     <div class="left-sidebar">
       <div class="sidebar" id="myNav">
         <div class="user-info">
@@ -62,6 +62,18 @@
             <p>John Doe</p>
             <span>john.doe@example.com</span>
           </div>
+          <div class="arrow_down dropleft"> 
+               <i class="material-icons arrow" role="button" id="dropdownMenuLink" data-toggle="dropdown">
+                keyboard_arrow_down
+              </i>
+              <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
+                <li ><a class="dropdown-item">
+                  <i class="material-icons">lock</i>Update Password</a>
+                </li>
+                <li><a class="dropdown-item">
+                  <i class="material-icons">input</i>Logout</a></li>
+              </ul>
+           </div> 
         </div>
         <div class="menu">
           <ul class="list" id="list-scroll">
@@ -543,42 +555,51 @@
     ></script>
     <script>
         
-        var rightSidebar = document.getElementById('right-sidebar');
+        // var rightS idebar = document.getElementById('right-sidebar');
+        var overLay = document.getElementById('overlay');
         var leftSidebar = document.getElementById("myNav");
         var closeSidebar = document.getElementById('arrow_back');
         var openSidebar= document.getElementById('more_sidebar');
-
         function myFunction(x){
           if(x.matches){
             leftSidebar.style.width="0px";
             closeSidebar.style.transform="scale(0)";
             openSidebar.style.transform="scale(1)";
-            rightSidebar.style.opacity="1";
+            overLay.style.display="none";
           }
           else{
             leftSidebar.style.width="300px";
-            rightSidebar.style.opacity="1";
+            overLay.style.display="none";
           }
         }
+        window.onclick = function(event){
+          if(event.target.matches(' .overlay')){
+            closeNav();
+          }
+        }
+
         var x = window.matchMedia("(max-width: 1155px)");
         myFunction(x) // Call listener function at run time
         x.addListener(myFunction);
-
+        
       function openNav(){
         openSidebar.style.transform="scale(0)";
         closeSidebar.style.transform="scale(1)";
         leftSidebar.style.width="300px";
-         rightSidebar.style.opacity=".2";
+        overLay.style.display="block";
 
       }
+      
       function closeNav(){
+        // window.onclick = function(event){
+        //   if(!event.target.matches('#myNav')){
+        //     closeNav()
+        //   }
+        // }
         closeSidebar.style.transform="scale(0)";
-        // openSidebar.style.display="block";
-        // closeSidebar.style.transform="scale(1)";
         openSidebar.style.transform="scale(1)";
         leftSidebar.style.width="0px";
-         rightSidebar.style.opacity="1";
-
+        overLay.style.display="none";
       }
       
 

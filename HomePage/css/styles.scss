@@ -11,7 +11,6 @@ body {
 header {
   position: fixed;
   top: 0;
-
   width: 100%;
   z-index: 9999;
   .navbar {
@@ -63,7 +62,16 @@ header {
     }
   }
 }
-
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
 .left-sidebar {
   margin: 0;
   padding: 0;
@@ -76,7 +84,7 @@ header {
     top: 70px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    z-index: 11 !important;
+    z-index: 99 !important;
     transition: 0.4s;
     .user-info {
       background: url(../img/user-img-background.jpg) no-repeat no-repeat;
@@ -98,6 +106,24 @@ header {
           font-size: 14px;
         }
       }
+      .arrow_down {
+        // position: relative;
+        i.arrow {
+          position: relative;
+          right: -92%;
+          bottom: 4px;
+          color: #fff;
+          cursor: pointer;
+        }
+        ul li {
+          i {
+            position: relative;
+            top: 5px;
+            margin-right: 4px;
+          }
+          cursor: pointer;
+        }
+      }
     }
     .menu {
       position: relative;
@@ -112,6 +138,14 @@ header {
         padding: 0;
         li {
           padding: 10px 13px;
+        }
+        li:hover {
+          a {
+            color: red;
+            i {
+              color: red;
+            }
+          }
         }
         li a {
           text-decoration: none;
@@ -193,7 +227,7 @@ header {
             position: relative;
             left: 30px;
             top: 7px;
-            z-index: 999;
+            z-index: 9;
           }
         }
       }
@@ -231,18 +265,20 @@ header {
       a {
         margin-left: 30px;
       }
+      a:first-child {
+        margin-left: 0;
+      }
       span.more_sidebar {
         display: block;
       }
       span.arrow_back {
         display: block;
-        // transform: scale(0);
       }
     }
   }
-  .left-sidebar {
-    z-index: 9999;
-  }
+  // .left-sidebar {
+  //   z-index: 9999;
+  // }
   .right-sidebar {
     transition: 0.5s;
     width: 100%;
