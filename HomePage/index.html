@@ -53,6 +53,7 @@
         </div>
       </nav>
     </header>
+
     <div class="overlay" id="overlay"></div>
     <div class="left-sidebar">
       <div class="sidebar" id="myNav">
@@ -564,6 +565,8 @@
         var leftSidebar = document.getElementById("myNav");
         var closeSidebar = document.getElementById('arrow_back');
         var openSidebar= document.getElementById('more_sidebar');
+        var menuList = document.getElementById('listScroll');
+
         function myFunction(x){
           if(x.matches){
             leftSidebar.style.width="0px";

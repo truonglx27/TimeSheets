@@ -292,6 +292,11 @@ header .navbar .moreInfo ul li a .famfamfam-flags {
     height: 55vh;
   }
 }
+@media screen and (max-height: 600px) {
+  .left-sidebar .sidebar .menu ul {
+    height: 49vh;
+  }
+}
 @media screen and (max-height: 500px) {
   .left-sidebar .sidebar .menu ul {
     height: 40vh;
