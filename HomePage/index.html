@@ -19,7 +19,7 @@
   <body>
     <!-- Image and text -->
     <header>
-      <nav class="navbar">
+      <nav class="navbar" id="navbar">
         <!-- <span>&#9776;</span> -->
         <span id="arrow_back" class="arrow_back" onclick="closeNav()">
           <i class="material-icons">arrow_back</i>
@@ -40,7 +40,9 @@
               </i>
             </li>
             <li>
-              <a href="">English</a>
+              <a href="">
+                <i class="famfamfam-flags gb" title="English"></i>English
+              </a>
             </li>
             <li>
               <i class="material-icons">
@@ -54,7 +56,7 @@
     <div class="overlay" id="overlay"></div>
     <div class="left-sidebar">
       <div class="sidebar" id="myNav">
-        <div class="user-info">
+        <div class="user-info" id="userInfo">
           <div class="image">
             <img src="./img/user.png" alt="" />
           </div>
@@ -75,8 +77,8 @@
               </ul>
            </div> 
         </div>
-        <div class="menu">
-          <ul class="list" id="list-scroll">
+        <div class="menu" id="menuList">
+          <ul class="list" id="listScroll">
             <li class="home-page">
               <a href="#">
                 <i class="material-icons">
@@ -143,7 +145,7 @@
             </li>
           </div>
           </ul>
-        <div class="legal">
+        <div class="legal" id="legal">
           <div>
             <p><span>© 2016 - 2017 </span>TimeSheet</p>
           </div>
@@ -187,7 +189,7 @@
                               <hr>
                               <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                 <li class="nav-item " >
-                                  <a class="nav-link px-5" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">General</a>
+                                  <a class="nav-link active px-5" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">General</a>
                                 </li>
                                 <li class="nav-item ">
                                   <a class="nav-link px-5" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Team</a>
@@ -202,7 +204,7 @@
                                       <form class="was-validated">
                                         <div class="form-group row mt-1">
                                           <label for="staticEmail" class="col-sm-2 col-form-label">Client(*)</label>
-                                          <div class="col-sm-7">
+                                          <div class="col-sm-10 col-md-7">
                                               <div class="form-group">
                                                 <select class="custom-select" required>
                                                     <option value="">Choose a client...</option>
@@ -222,26 +224,28 @@
                                         </div>
                                         <div class="form-group row">
                                           <label for="inputPassword" class="col-sm-2 col-form-label">Project Name(*)</label>
-                                          <div class="col-sm-7">
+                                          <div class="col-sm-10 col-md-7">
                                               <input type="text" class="form-control" id="inputPassword" placeholder="Project name"required >
                                               <div class="invalid-feedback">Project name is required!</div>
                                           </div>
                                         </div>
                                         <div class="form-group row">
                                           <label for="inputPassword" class="col-sm-2 col-form-label">Project Code(*)</label>
-                                          <div class="col-sm-7">
+                                          <div class="col-sm-10 col-md-7">
                                               <input type="text" class="form-control" id="inputPassword" placeholder="Project Code" required>
                                               <div class="invalid-feedback">Project Code is required!</div>
                                           </div>
                                         </div>
                                         <div class="form-group row">
-                                          <label for="example-date-input" class="col-2 col-form-label">Date(*)</label>
-                                          <div class="col-4">
+                                          <label for="example-date-input" class="col-2 col-form-label">Date Start(*)</label>
+                                          <div class="col-10 col-md-5">
                                             <input class="form-control" type="date" id="example-date-input" placeholder="Start" required>
                                               <div class="invalid-feedback">Time start is required!</div>
                                           </div>
-                                          <span class="mt-2">to</span>
-                                          <div class="col-4">
+                                        </div>
+                                        <div class="form-group row">
+                                          <label for="example-date-input" class="col-2 col-form-label">Date End(*)</label>
+                                          <div class="col-10 col-md-5">
                                             <input class="form-control" type="date"  id="example-date-input" required>
                                             <div class="invalid-feedback">Time end is required!</div>
                                           </div>
@@ -337,8 +341,8 @@
                       <input
                         type="text"
                         class="form-control"
-                        placeholder="Search by client or project name"
                       />
+                      <span class="placeholder-search">Search by client or project name</span>
                     </div>
                   </div>
                 </div>
@@ -560,8 +564,6 @@
         var leftSidebar = document.getElementById("myNav");
         var closeSidebar = document.getElementById('arrow_back');
         var openSidebar= document.getElementById('more_sidebar');
-
-        // 
         function myFunction(x){
           if(x.matches){
             leftSidebar.style.width="0px";
@@ -585,6 +587,8 @@
         myFunction(x) // Call listener function at run time
         x.addListener(myFunction);
         
+          
+
       function openNav(){
         openSidebar.style.transform="scale(0)";
         closeSidebar.style.transform="scale(1)";
@@ -599,7 +603,6 @@
         leftSidebar.style.width="0px";
         overLay.style.display="none";
       }
-      
 
 
     </script>
