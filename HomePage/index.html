@@ -565,10 +565,6 @@
         var leftSidebar = document.getElementById("myNav");
         var closeSidebar = document.getElementById('arrow_back');
         var openSidebar= document.getElementById('more_sidebar');
-        var menuList = document.getElementById('listScroll');
-        var navbar = document.getElementById('navbar');
-        var legal = document.getElementById('legal');
-        var userInfo = document.getElementById('userInfo');
         function myFunction(x){
           if(x.matches){
             leftSidebar.style.transform="translateX(-320px)";
@@ -586,19 +582,6 @@
           if(event.target.matches(' .overlay')){
             closeNav();
           }
-        }
-        function changeMenuHeight(){
-          var heightUL = window.innerHeight -(navbar.clientHeight+ legal.clientHeight + navbar.clientHeight);
-          leftSidebar.style.height = window.innerHeight- legal.clientHeight + 'px';
-          menuList.style.maxHeight = heightUL - legal.clientHeight + 'px';
-        }
-
-        (function(){
-          changeMenuHeight();
-          console.log('changed height');
-        })();
-        window.onresize = function(event){
-          changeMenuHeight(); 
         }
         // check the screen width to execute function
         var x = window.matchMedia("(max-width: 1155px)");
