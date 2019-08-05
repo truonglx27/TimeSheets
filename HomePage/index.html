@@ -566,16 +566,18 @@
         var closeSidebar = document.getElementById('arrow_back');
         var openSidebar= document.getElementById('more_sidebar');
         var menuList = document.getElementById('listScroll');
-
+        var navbar = document.getElementById('navbar');
+        var legal = document.getElementById('legal');
+        var userInfo = document.getElementById('userInfo');
         function myFunction(x){
           if(x.matches){
-            leftSidebar.style.width="0px";
+            leftSidebar.style.transform="translateX(-320px)";
             closeSidebar.style.transform="scale(0)";
             openSidebar.style.transform="scale(1)";
             overLay.style.display="none";
           }
           else{
-            leftSidebar.style.width="300px";
+            leftSidebar.style.transform="translateX(0px)";
             overLay.style.display="none";
           }
         }
@@ -585,17 +587,30 @@
             closeNav();
           }
         }
+        function changeMenuHeight(){
+          var heightUL = window.innerHeight -(navbar.clientHeight+ legal.clientHeight + navbar.clientHeight);
+          leftSidebar.style.height = window.innerHeight- legal.clientHeight + 'px';
+          menuList.style.maxHeight = heightUL - legal.clientHeight + 'px';
+        }
+
+        (function(){
+          changeMenuHeight();
+          console.log('changed height');
+        })();
+        window.onresize = function(event){
+          changeMenuHeight(); 
+        }
         // check the screen width to execute function
         var x = window.matchMedia("(max-width: 1155px)");
         myFunction(x) // Call listener function at run time
         x.addListener(myFunction);
         
-          
 
       function openNav(){
+        // changeMenuHeight();
         openSidebar.style.transform="scale(0)";
         closeSidebar.style.transform="scale(1)";
-        leftSidebar.style.width="300px";
+        leftSidebar.style.transform="translateX(0px)";
         overLay.style.display="block";
 
       }
@@ -603,7 +618,7 @@
       function closeNav(){
         closeSidebar.style.transform="scale(0)";
         openSidebar.style.transform="scale(1)";
-        leftSidebar.style.width="0px";
+        leftSidebar.style.transform="translateX(-320px)";
         overLay.style.display="none";
       }
 

@@ -307,9 +307,6 @@ header {
       }
     }
   }
-  // .left-sidebar {
-  //   z-index: 9999;
-  // }
   .right-sidebar {
     transition: 0.5s;
     width: 100%;
@@ -324,30 +321,6 @@ header {
       .col3-6 {
         padding: 0px;
       }
-    }
-  }
-}
-
-@media screen and (max-height: 700px) {
-  .left-sidebar .sidebar .menu {
-    ul {
-      height: 55vh;
-    }
-  }
-}
-
-@media screen and (max-height: 600px) {
-  .left-sidebar .sidebar .menu {
-    ul {
-      height: 49vh;
-    }
-  }
-}
-
-@media screen and (max-height: 500px) {
-  .left-sidebar .sidebar .menu {
-    ul {
-      height: 40vh;
     }
   }
 }
